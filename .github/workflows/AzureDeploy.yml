@@ -17,7 +17,7 @@
        - name: Set up Azure CLI
          uses: azure/login@v1
          with:
-           creds: '{"clientId":"${{ secrets.CLIENT_ID }}","clientSecret":"${{ secrets.CLIENT_SECRET }}","subscriptionId":"${{ secrets.SUBSCRIPTION_ID }}","tenantId":"${{ secrets.TENANT_ID }}"}'
+           creds: ${{ secrets.AZURE_CREDENTIALS }}
        - name: Install Bicep CLI
          run: |
            curl -Lo bicep https://github.com/Azure/bicep/releases/latest/download/bicep-linux-x64
