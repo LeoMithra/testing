@@ -25,5 +25,6 @@
            sudo mv ./bicep /usr/local/bin/bicep
        - name: Build and deploy Azure resources
          run: |
-           bicep build azure-resources.bicep
-           az deployment sub create --name myDeployment --location westus3 --template-file ./azure-resources.json
+           bicep build dec_cond.bicep
+           bicep build dec_cond.bicepparam
+           az deployment sub create --name myDeployment --location westus3 --template-file dec_cond.bicep --parameters dec_cond.bicepparam
