@@ -27,4 +27,4 @@
          run: |
            bicep build dec_cond.bicep
            bicep build dec_cond.bicepparam
-           az deployment group create -g pratice --template-file dec_cond.bicep --parameters dec_cond.bicepparam
+           az deployment group create -g pratice --template-file dec_cond.json --parameters dec_cond.json
