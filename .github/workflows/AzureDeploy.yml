@@ -25,6 +25,7 @@
            sudo mv ./bicep /usr/local/bin/bicep
        - name: Build and deploy Azure resources
          run: |
+           ls -al
            bicep build dec_cond.bicep
            bicep build dec_cond.bicepparam
            az deployment group create -g pratice --template-file dec_cond.json --parameters dec_cond.json
