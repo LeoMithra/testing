@@ -6,10 +6,10 @@ resource logicApp 'Microsoft.Logic/workflows@2019-05-01' = {
       '$schema': 'https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json'
       contentVersion: '1.0.0.0'
       parameters: {
-        a:{
-          type:'Int'
+        a: {
+          type: 'Int'
           defaultValue: 10
-        } 
+        }
       }
       trigger: {
         Recurrence: {
@@ -28,8 +28,9 @@ resource logicApp 'Microsoft.Logic/workflows@2019-05-01' = {
       }
       actions: {
         increment_varibale: {
+          type: 'IncrementVariable'
           inputs: {
-            name: '@parameters('a')'
+            name: '@parameters("a")'
             value: 5
           }
           runAfter: {}
