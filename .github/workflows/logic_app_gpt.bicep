@@ -26,15 +26,12 @@ resource logicApp 'Microsoft.Logic/workflows@2019-05-01' = {
           }
         }
       }
-      variables: {// Initialize the variable
-        counter: 15
-      }
       actions: {
         increment_variable: {
           type: 'IncrementVariable'
           inputs: {
-            name: 'counter' // This is the variable name, not the parameter
-            value: '@parameters("a")' // Use the parameter as increment value
+            name: '@parameters("a")' // This is the variable name, not the parameter
+            value: 10 // Use the parameter as increment value
           }
           runAfter: {}
         }

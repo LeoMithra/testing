@@ -5,7 +5,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.20.4.51522",
-      "templateHash": "8917421296728487974"
+      "templateHash": "2657966406044381330"
     }
   },
   "resources": [
@@ -44,7 +44,7 @@
               "type": "IncrementVariable",
               "inputs": {
                 "name": "@parameters(\"a\")",
-                "value": 5
+                "value": 10
               },
               "runAfter": {}
             }
