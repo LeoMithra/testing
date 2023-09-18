@@ -1,6 +1,6 @@
 resource logicApp 'Microsoft.Logic/workflows@2019-05-01' = {
-  name: 'name'
-  location: location
+  name: 'trying8022'
+  location: 'eastus'
   properties: {
     definition: {
       '$schema': 'https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json'
