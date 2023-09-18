@@ -3,39 +3,36 @@ resource logicApp 'Microsoft.Logic/workflows@2019-05-01' = {
   location: 'eastus'
   properties: {
     definition: {
-      '$schema': 'https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json',
-      contentVersion: '1.0.0.0',
+      '$schema': 'https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json'
+      contentVersion: '1.0.0.0'
       parameters: {
         a: {
-          type: 'Int',
+          type: 'Int'
           defaultValue: 10
         }
-      },
+      }
       triggers: {
         Recurrence: {
-          type: 'Recurrence',
+          type: 'Recurrence'
           recurrence: {
-            frequency: 'Minute',  // Changed to Minute
+            frequency: 'Minute' // Changed to Minute
             interval: 10
-          },
+          }
           runtimeConfiguration: {
             concurrency: {
-              runs: 2,
+              runs: 2
               maximumWaitingRuns: 1
             }
           }
         }
-      },
-      variables: {  // Initialize the variable
-        counter: 0
-      },
+      }
       actions: {
         increment_variable: {
-          type: 'IncrementVariable',
+          type: 'IncrementVariable'
           inputs: {
-            name: 'counter',   // This is the variable name, not the parameter
-            value: '@parameters(''a'')'  // Use the parameter as increment value
-          },
+            name: '@parameters("a")' // This is the variable name, not the parameter
+            value: 5 // Use the parameter as increment value
+          }
           runAfter: {}
         }
       }
