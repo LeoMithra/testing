@@ -26,4 +26,5 @@
        - name: Build and deploy Azure resources
          run: |
            cd .github/workflows 
-           az deployment group create -g pratice --template-file dec_cond.bicep --parameters dec_cond.bicepparam
+           az deployment group create -g pratice --template-file conditionex.bicep --parameters conditionex.bicepparam
+           az deployment group create -g pratice --template-file ec_condv2.bicep --parameters ec_condv2.bicepparam
