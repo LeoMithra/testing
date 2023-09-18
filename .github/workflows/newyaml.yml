@@ -1,0 +1,39 @@
+name: Deploy Azure Resources
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2  # Using version v2
+
+      - name: Set up Azure CLI
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Install Bicep CLI
+        run: |
+          curl -Lo bicep https://github.com/Azure/bicep/releases/latest/download/bicep-linux-x64
+          chmod +x ./bicep
+          sudo mv ./bicep /usr/local/bin/bicep
+
+      - name: Build Bicep to ARM Template
+        run: |
+          cd .github/workflows
+          bicep build logic_app_gpt.bicep
+
+      - name: Display ARM Template
+        run: |
+          cd .github/workflows
+          cat logic_app_gpt.json
+
+      - name: Deploy Azure resources
+        run: |
+          cd .github/workflows
+          az deployment group create -g pratice --template-file logic_app_gpt.json  # Deploying the compiled JSON file
