@@ -26,5 +26,5 @@
        - name: Build and deploy Azure resources
          run: |
            cd .github/workflows 
-           az deployment group create -g pratice --template-file logic_app.bicep
+           az deployment group create -g pratice --template-file logic_app_gpt.bicep
            
