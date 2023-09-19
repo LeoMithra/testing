@@ -23,7 +23,8 @@ resource logicApp 'Microsoft.Logic/workflows@2019-05-01' = {
       }
       actions: {
         InitializeVaribale: {
-          type: 'InitializeVaribale'
+          type: 'InitializeVariable'
+
           inputs: {
             name: 'x'
             type: 'Integer'
