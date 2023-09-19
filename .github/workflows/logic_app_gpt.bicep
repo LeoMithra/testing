@@ -34,7 +34,7 @@ resource logicApp 'Microsoft.Logic/workflows@2019-05-01' = {
         increment_variable: {
           type: 'IncrementVariable'
           inputs: {
-            name: '@parameters("a")' // This is the variable name, not the parameter
+            name: 'x' // This is the variable name, not the parameter
             value: 10 // Use the parameter as increment value
           }
           runAfter: { InitializeVaribale: [ 'Succeeded' ] }
