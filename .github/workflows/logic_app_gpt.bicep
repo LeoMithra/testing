@@ -5,12 +5,7 @@ resource logicApp 'Microsoft.Logic/workflows@2019-05-01' = {
     definition: {
       '$schema': 'https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json'
       contentVersion: '1.0.0.0'
-      parameters: {
-        a: {
-          type: 'Int'
-          defaultValue: 10
-        }
-      }
+      parameters: {}
       triggers: {
         Recurrence: {
           type: 'Recurrence'
@@ -27,13 +22,22 @@ resource logicApp 'Microsoft.Logic/workflows@2019-05-01' = {
         }
       }
       actions: {
+        InitializeVaribale: {
+          type: 'InitializeVaribale'
+          inputs: {
+            name: 'x'
+            type: 'Integer'
+            value: '13'
+          }
+          runAfter: {}
+        }
         increment_variable: {
           type: 'IncrementVariable'
           inputs: {
             name: '@parameters("a")' // This is the variable name, not the parameter
             value: 10 // Use the parameter as increment value
           }
-          runAfter: {}
+          runAfter: { InitializeVaribale: [ 'Succeeded' ] }
         }
       }
     }
