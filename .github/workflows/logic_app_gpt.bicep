@@ -30,7 +30,7 @@ resource logicApp 'Microsoft.Logic/workflows@2019-05-01' = {
 
                 name: 'x'
                 type: 'Integer'
-                value: '13'
+                value: 13
               } ]
 
           }
