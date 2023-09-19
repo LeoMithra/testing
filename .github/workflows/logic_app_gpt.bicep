@@ -22,15 +22,16 @@ resource logicApp 'Microsoft.Logic/workflows@2019-05-01' = {
         }
       }
       actions: {
-        InitializeVaribale: {
+        Initialize_Varibale: {
           type: 'InitializeVariable'
 
           inputs: {
-            variables: {
-              name: 'x'
-              type: 'Integer'
-              value: '13'
-            }
+            variables: [ {
+
+                name: 'x'
+                type: 'Integer'
+                value: '13'
+              } ]
 
           }
           runAfter: {}
@@ -41,7 +42,7 @@ resource logicApp 'Microsoft.Logic/workflows@2019-05-01' = {
             name: 'x' // This is the variable name, not the parameter
             value: 10 // Use the parameter as increment value
           }
-          runAfter: { InitializeVaribale: [ 'Succeeded' ] }
+          runAfter: { Initialize_Varibale: [ 'Succeeded' ] }
         }
       }
     }
