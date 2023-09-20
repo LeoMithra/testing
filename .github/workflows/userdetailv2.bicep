@@ -13,8 +13,8 @@ resource logicApp 'Microsoft.Logic/workflows@2019-05-01' = {
             schema: {
               type: 'object'
               properties: {
-                user_name: {  type: 'string'  }
-                user_email: {  type: 'string'  }
+                user_name: { type: 'string' }
+                user_email: { type: 'string' }
               }
             }
           }
@@ -33,7 +33,7 @@ resource logicApp 'Microsoft.Logic/workflows@2019-05-01' = {
           runAfter: {}
           inputs: {
             method: 'GET'
-            uri: 'https://graph.microsoft.com/v1.0/users/@triggerOutput()?[''body/user_email'']'
+            uri: 'https://graph.microsoft.com/v1.0/users/triggerOutputs()?[\'user_email\']'
             authentication: {
               type: 'ActiveDirectoryOAuth'
               tenant: '0682f2e8-d86e-46a3-889b-3724d8b02485'
