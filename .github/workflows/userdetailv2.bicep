@@ -18,13 +18,14 @@ resource logicApp 'Microsoft.Logic/workflows@2019-05-01' = {
               }
             }
           }
-        }
-        runtimeConfiguration: {
-          concurrency: {
-            runs: 1
-            maximumWaitingRuns: 3
+          runtimeConfiguration: {
+            concurrency: {
+              runs: 1
+              maximumWaitingRuns: 3
+            }
           }
         }
+
       }
       actions: {
         getuserinfo: {
