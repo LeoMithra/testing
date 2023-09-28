@@ -26,7 +26,7 @@ jobs:
       - name: Build Bicep to ARM Template
         run: |
           cd .github/workflows
-          bicep build newtest.bicep
+          bicep build roleManager.bicep
 
       - name: Display ARM Template
         run: |
