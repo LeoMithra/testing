@@ -26,14 +26,14 @@ jobs:
       - name: Build Bicep to ARM Template
         run: |
           cd .github/workflows
-          bicep build userdetailv2.bicep
+          bicep build newtest.bicep
 
       - name: Display ARM Template
         run: |
           cd .github/workflows
-          cat userdetailv2.json
+          cat roleManager.json
 
       - name: Deploy Azure resources
         run: |
           cd .github/workflows
-          az deployment group create -g pratice --template-file userdetailv2.json  # Deploying the compiled JSON file
+          az deployment group create -g pratice --template-file roleManager.json  # Deploying the compiled JSON file
